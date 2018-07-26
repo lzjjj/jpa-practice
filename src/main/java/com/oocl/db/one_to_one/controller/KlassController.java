@@ -5,6 +5,7 @@ import com.oocl.db.one_to_n.entity.Employee;
 import com.oocl.db.one_to_n.repository.CompanyRepository;
 import com.oocl.db.one_to_n.repository.EmployeeRepository;
 import com.oocl.db.one_to_one.entity.Klass;
+import com.oocl.db.one_to_one.entity.Leader;
 import com.oocl.db.one_to_one.repository.KlassRepository;
 import com.oocl.db.one_to_one.repository.LeaderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +68,14 @@ public class KlassController {
         return klassRepository.findById( id );
     }
 
-//    @Transactional
-//    @DeleteMapping(path = "/employee/{Eid}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//    public ResponseEntity deleteEmployee(@PathVariable Long Eid) {
-//        Employee employee = employeeRepository.findById( Eid ).get();
-//        employeeRepository.delete( employee );
-//        return ResponseEntity.status( HttpStatus.NO_CONTENT ).build();
-//    }
+    @Transactional
+    @DeleteMapping(path = "/leader/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public Leader deleteLeader(@PathVariable Long id) {
+        Leader leader = leaderRepository.findById( id ).get();
+        leaderRepository.delete( leader );
+        return leader;
+    }
 //
 //    @Transactional
 //    @GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
