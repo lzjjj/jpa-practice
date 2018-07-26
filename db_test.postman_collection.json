@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "5969b4ad-ae7d-4b77-bb2d-54e6015b665c",
+		"name": "db_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "281614ad-ee56-4be5-91af-7ae2fd321e47",
+			"name": "add a company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"name\": \"alibaba\",\n  \t\"employees\":[{\n\t\"name\": \"Tom\"\n\t}] \n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "73b13da9-e5ff-4974-b678-08ab815e73c9",
+			"name": "get all companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "e1a22854-c50a-41a3-b9eb-c6326cc29eea",
+			"name": "delete a companies",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "5c2eeaf9-317f-4eb1-8e73-2bef15821e24",
+			"name": "updateCompany",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n        \"name\": \"alibaba\",\n        \"create_time\": \"2018-07-26T20:50:05.394+08:00\",\n        \"employees\": [\n            {\n               \n                \"name\": \"Tom\"\n                \n            },\n            {\n              \n                \"name\": \"LOUIS\"\n               \n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "c3c439c7-0357-4ae4-8416-bdf84e527a75",
+			"name": "get a company",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "3cc6347b-8a26-43de-9f3a-0145136ccb1b",
+			"name": "DeleteEmployee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies/employee/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "bdd74006-7626-48c7-b33d-e219aedc0cf2",
+			"name": "getAllEmployees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/companies/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"companies",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
