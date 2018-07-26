@@ -30,7 +30,7 @@ public class KlassController {
     @Transactional
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Klass save(@RequestBody Klass klass) {
-        if(klass.getLeader()!=null){
+        if (klass.getLeader() != null) {
             klass.getLeader().setKlass( klass );
         }
         return klassRepository.save( klass );
@@ -45,7 +45,7 @@ public class KlassController {
     @Transactional
     @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateKlass(@RequestBody Klass klass) {
-        if(klass.getLeader()!=null){
+        if (klass.getLeader() != null) {
             klass.getLeader().setKlass( klass );
         }
         klassRepository.save( klass );
@@ -71,15 +71,15 @@ public class KlassController {
     @Transactional
     @DeleteMapping(path = "/leader/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public Leader deleteLeader(@PathVariable Long id) {
+    public ResponseEntity deleteLeader(@PathVariable Long id) {
         Leader leader = leaderRepository.findById( id ).get();
-        leaderRepository.delete( leader );
-        return leader;
+            leaderRepository.delete( leader );
+            return ResponseEntity.status( HttpStatus.MULTI_STATUS ).build();
     }
-//
-//    @Transactional
-//    @GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<Employee> getEmployees() {
-//        return employeeRepository.findAll();
-//    }
+
+    @Transactional
+    @GetMapping(path = "/leader", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List <Leader> getLeaders() {
+        return leaderRepository.findAll();
+    }
 }
