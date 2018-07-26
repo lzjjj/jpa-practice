@@ -1,15 +1,14 @@
-package com.oocl.db.one.to.n.entity;
+package com.oocl.db.one_to_n.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-@Table(name = "company")
+@Table(name = "employee")
 @Entity
-public class Company {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -19,17 +18,12 @@ public class Company {
     @CreatedDate
     private ZonedDateTime create_time = ZonedDateTime.now();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
-    private List <Employee> employees = new ArrayList <>();
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
 
-
-
-    public Company(long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Company() {
+    public Employee() {
     }
 
     public long getId() {
@@ -55,11 +49,13 @@ public class Company {
     public void setCreate_time(ZonedDateTime create_time) {
         this.create_time = create_time;
     }
-    public List <Employee> getEmployees() {
-        return employees;
+
+    public Company getCompany() {
+        return company;
     }
 
-    public void setEmployees(List <Employee> employees) {
-        this.employees = employees;
+    public void setCompany(Company company) {
+        this.company = company;
     }
+
 }

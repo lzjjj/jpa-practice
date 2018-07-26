@@ -1,9 +1,9 @@
-package com.oocl.db.one.to.n.controller;
+package com.oocl.db.one_to_n.controller;
 
-import com.oocl.db.one.to.n.entity.Company;
-import com.oocl.db.one.to.n.entity.Employee;
-import com.oocl.db.one.to.n.repository.CompanyRepository;
-import com.oocl.db.one.to.n.repository.EmployeeRepository;
+import com.oocl.db.one_to_n.entity.Company;
+import com.oocl.db.one_to_n.entity.Employee;
+import com.oocl.db.one_to_n.repository.CompanyRepository;
+import com.oocl.db.one_to_n.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/companies")

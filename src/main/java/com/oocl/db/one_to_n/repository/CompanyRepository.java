@@ -1,6 +1,6 @@
-package com.oocl.db.one.to.n.repository;
+package com.oocl.db.one_to_n.repository;
 
-import com.oocl.db.one.to.n.entity.Company;
+import com.oocl.db.one_to_n.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
