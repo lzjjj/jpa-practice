@@ -41,32 +41,32 @@ public class KlassController {
         return klassRepository.findAll();
     }
 
-//    @Transactional
-//    @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity updateCompany(@RequestBody Company company) {
-//        company.getEmployees().stream()
-//                .filter( employee -> employee.getCompany() == null )
-//                .forEach( employee -> employee.setCompany( company ) );
-//        companyRepository.save( company );
-//        return ResponseEntity.status( HttpStatus.NO_CONTENT ).build();
-//    }
-//
-//    @Transactional
-//    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public Company delete(@PathVariable Long id) {
-//        Company company = companyRepository.findById( id ).get();
-//        companyRepository.delete( company );
-//        return company;
-//    }
-//
-//
-//    @Transactional
-//    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//    public Optional <Company> findById(@PathVariable Long id) {
-//        return companyRepository.findById( id );
-//    }
-//
+    @Transactional
+    @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateKlass(@RequestBody Klass klass) {
+        if(klass.getLeader()!=null){
+            klass.getLeader().setKlass( klass );
+        }
+        klassRepository.save( klass );
+        return ResponseEntity.status( HttpStatus.NO_CONTENT ).build();
+    }
+
+    @Transactional
+    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Klass delete(@PathVariable Long id) {
+        Klass klass = klassRepository.findById( id ).get();
+        klassRepository.delete( klass );
+        return klass;
+    }
+
+
+    @Transactional
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public Optional <Klass> findById(@PathVariable Long id) {
+        return klassRepository.findById( id );
+    }
+
 //    @Transactional
 //    @DeleteMapping(path = "/employee/{Eid}", produces = MediaType.APPLICATION_JSON_VALUE)
 //

@@ -20,19 +20,19 @@ public class Klass {
     @CreatedDate
     private ZonedDateTime create_time = ZonedDateTime.now();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "klass", fetch = FetchType.LAZY)
     @JoinColumn(name = "leader_id")
-    private Leader leader ;
+    private Leader leader;
 
 
-
-    public Klass( String name,Leader leader) {
+    public Klass(String name, Leader leader) {
         this.name = name;
-        this.leader =leader;
+        this.leader = leader;
     }
 
     public Klass() {
     }
+
     public Leader getLeader() {
         return leader;
     }
@@ -40,6 +40,7 @@ public class Klass {
     public void setLeader(Leader leader) {
         this.leader = leader;
     }
+
     public long getId() {
         return id;
     }

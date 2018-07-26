@@ -20,10 +20,14 @@ public class Leader {
     private ZonedDateTime create_time = ZonedDateTime.now();
 
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "klass_id")
     private Klass klass;
 
+    public Leader(Long id,String name) {
+        this.id = id;
+        this.name = name;
+    }
     public Leader() {
     }
 
